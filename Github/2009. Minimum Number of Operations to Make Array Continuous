@@ -1,0 +1,25 @@
+#pragma GCC optimize("O3","inline","fast-math","tree-vectorize", "unroll-loops")
+#pragma GCC target("arch=native")
+
+static int _ = [](){
+        cin.tie(0);
+        cout.tie(0);
+        ios::sync_with_stdio(false);
+        return 0;
+    }();
+
+
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        std::sort(nums.begin(),nums.end());
+        int ori_size=nums.size();int i=0,j=0;
+        nums.erase(std::unique(nums.begin(),nums.end()),nums.end());
+        // nums.erase(unique(vec.begin(), vec.end()), vec.end());
+        int after_size=nums.size();
+        for(;j<after_size;j++){
+            if(nums[i]+ori_size<=nums[j])i++;// if this element cannot hold all the element, then change the current one 
+        }
+        return ori_size-j+i;// j is for the duplicate one, i is for the number that we need to change 
+    }
+};
