@@ -1,0 +1,35 @@
+auto speedUp = []() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 0;
+}();
+#include <string.h>
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        string s1;
+        string t1;
+        for( int i=0;i<s.size();i++){
+            if(s[i]!='#'){
+                s1+=s[i];
+            }else{
+                if(!s1.empty()){
+                    s1.pop_back();
+                }
+            }
+        }
+        for( int i=0;i<t.size();i++){
+            if(t[i]!='#'){
+                t1+=t[i];
+            }else{
+                if(!t1.empty()){
+                    t1.pop_back();
+                }
+            }
+        }
+        
+        return (s1==t1)?true:false;
+        
+    }
+};
