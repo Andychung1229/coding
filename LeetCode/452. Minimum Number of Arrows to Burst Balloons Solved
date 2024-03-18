@@ -1,0 +1,35 @@
+auto speedUp = []() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 0;
+}();
+class Solution {
+public:
+    // bool compare(const vector<int>& a ,const vector<int>& b ){
+    //     if(a[1]<b[1]) return true;
+    //     return false;
+    // }
+    static bool compare(const vector<int>& a, const vector<int>& b) {
+        return a[1] < b[1]; 
+    }
+    int findMinArrowShots(vector<vector<int>>& points) {
+        //minimum number of overlap
+        int answer=1;
+        sort(points.begin(),points.end(),compare);
+        
+        int current=points[0][1];
+        for(auto p :points){
+            if(current>=p[0]){
+                
+            }else{
+
+                answer++;
+                current=p[1];
+                
+            }
+
+        }
+        return answer;
+    }
+};
