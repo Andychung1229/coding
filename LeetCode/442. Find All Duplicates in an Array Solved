@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        ios_base::sync_with_stdio(false);     cin.tie(nullptr);     cout.tie(nullptr);
+        // int result[100000]={0};
+        // for(int i =0;i<nums.size();i++){
+        //     result[nums[i]]++;
+            
+        // }
+        // vector<int> res;
+        // for(int i=0;i<100000;i++){
+        //     if(result[i]>1){
+                
+        //         res.push_back(i);
+                
+        //     }
+        // }
+        // return res;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+
+        std::bitset<100001> cache;
+
+        std::vector<int> result;
+        for (const int& n : nums) {
+            bool duplicate = cache.test(n);
+
+            if (duplicate) {
+                result.push_back(n);
+            }
+            else {
+                cache.set(n);
+            }
+        }
+
+        return result;
+    }
+};
